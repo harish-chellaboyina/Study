@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>DoctorAppointmentManagementSystem</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Doctor Appointments</servlet-name>
+    <servlet-class>Servlets.DoctorAppointments</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Doctor Appointments</servlet-name>
+    <url-pattern>/getDoctorAppointments</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Search Organs</servlet-name>
+    <servlet-class>Servlets.OrganSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search Organs</servlet-name>
+    <url-pattern>/searchOrgans</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Organ Donation</servlet-name>
+    <servlet-class>Servlets.OrganDonationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Organ Donation</servlet-name>
+    <url-pattern>/OrganDonation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Medical History</servlet-name>
+    <servlet-class>Servlets.MedicalHistoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Medical History</servlet-name>
+    <url-pattern>/getMedicalHistory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Update Appointment</servlet-name>
+    <servlet-class>Servlets.UpdateAppointmentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Update Appointment</servlet-name>
+    <url-pattern>/updateAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Create Appointment</servlet-name>
+    <servlet-class>Servlets.CreateAppointment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Create Appointment</servlet-name>
+    <url-pattern>/createNewAppointment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Patient Appointments</servlet-name>
+    <servlet-class>Servlets.PatientAppointments</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Patient Appointments</servlet-name>
+    <url-pattern>/getPatientAppointments</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Register Patient</servlet-name>
+    <servlet-class>Servlets.PatientRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Register Patient</servlet-name>
+    <url-pattern>/RegisterPatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Login Patient</servlet-name>
+    <servlet-class>Servlets.PatientLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login Patient</servlet-name>
+    <url-pattern>/LoginPatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Register Doctor</servlet-name>
+    <servlet-class>Servlets.DoctorRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Register Doctor</servlet-name>
+    <url-pattern>/RegisterDoctor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Login Doctor</servlet-name>
+    <servlet-class>Servlets.DoctorLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login Doctor</servlet-name>
+    <url-pattern>/LoginDoctor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/RestServices/*</url-pattern>
+  </servlet-mapping>
+</web-app>
