@@ -1,5 +1,7 @@
 package TreePrograms;
 
+import java.util.Stack;
+
 
 /*
  * @author: Harish
@@ -15,28 +17,20 @@ public class PrintAllPathsFromRootToLeafOfSpecificSum {
 	public void initializeInputs() {
 		
 		this.k = 22;
-		TreeNode root = new TreeNode(5);
-		TreeNode node1 = new TreeNode(1);
-		TreeNode node2 = new TreeNode(7);
-		TreeNode node3 = new TreeNode(-2);
-		TreeNode node4 = new TreeNode(10);
-		TreeNode node5 = new TreeNode(3);
-		TreeNode node6 = new TreeNode(7);
-		TreeNode node7 = new TreeNode(-3);
-		TreeNode node8 = new TreeNode(4);
-		TreeNode node9 = new TreeNode(-4);
-		TreeNode node10 = new TreeNode(6);
+		TreeNode root = new TreeNode(15);
+		TreeNode node1 = new TreeNode(10);
+		TreeNode node2 = new TreeNode(3);
+		TreeNode node3 = new TreeNode(7);
+		TreeNode node4 = new TreeNode(18);
+		TreeNode node5 = new TreeNode(25);
+		TreeNode node6 = new TreeNode(20);
 		
 		root.left = node1;
-		root.right = node2;
-		node1.left = node3;
-		node2.right = node4;
-		node3.left = node5;
+		node1.left = node2;
+		node2.right = node3;
+		root.right = node4;
+		node4.right = node5;
 		node5.left = node6;
-		node6.right = node7;
-		node1.right = node8;
-		node5.right = node9;
-		node2.left = node10;
 		this.root = root;
 	}
 	
@@ -55,6 +49,59 @@ public class PrintAllPathsFromRootToLeafOfSpecificSum {
 		preOrder(root.right, sum, path + ", " + root.value);
 	}
 	
+	
+	public void iterativeInorder(TreeNode root) {
+		Stack<TreeNode> st = new Stack<TreeNode>();
+		boolean check = true;
+		st.push(root);
+		root = root.left;
+		while (check) {
+			if (st.isEmpty() && root == null)
+				break;
+			
+			if (root != null) {
+				st.push(root);
+				root = root.left;
+			} else {
+				root = st.pop();
+				System.out.print(root.value + " ");
+				root = root.right;
+			}
+		}
+	}
+	
+	public void iterativeReverseInorder(TreeNode root) {
+		Stack<TreeNode> st = new Stack<TreeNode>();
+		boolean check = true;
+		st.push(root);
+		root = root.right;
+		while (check) {
+			if (st.isEmpty() && root == null)
+				break;
+			
+			if (root != null) {
+				st.push(root);
+				root = root.right;
+			} else {
+				root = st.pop();
+				System.out.print(root.value + " ");
+				root = root.left;
+			}
+		}
+	}
+	
+	
+	
+	public void recursivePreorder(TreeNode root) {
+		if (root == null)
+			return;
+		
+		recursivePreorder(root.left);
+		System.out.print(root.value + " ");
+		recursivePreorder(root.right);
+		
+	}
+	
 	public TreeNode perform() {
 		int sum = 0;
 		preOrder(this.root, sum, "");
@@ -62,8 +109,9 @@ public class PrintAllPathsFromRootToLeafOfSpecificSum {
 	}
 	
 	public static void main(String args[]) {
-		PrintAllPathsFromRootToLeaf obj = new PrintAllPathsFromRootToLeaf();
+		PrintAllPathsFromRootToLeafOfSpecificSum obj = new PrintAllPathsFromRootToLeafOfSpecificSum();
 		obj.initializeInputs();
 		obj.perform();
+		
 	}
 }

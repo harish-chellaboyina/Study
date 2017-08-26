@@ -3,17 +3,17 @@ package TreePrograms;
 public class SegmentTree {
 	
 	public static void constructSegmentTree(int input[], int segTree[], int low, int high, int pos) {
- 		if (low == high) {
+ 		if (low == high)  {
  			segTree[pos] = input[low];
  			return;
  		}
  		
- 		int mid = (low + high) / 2;
+ 		int mid = (low + high)/2;
  		
- 		constructSegmentTree(input, segTree, low, mid, 2*pos + 1);
+ 		constructSegmentTree(input, segTree, low, mid, 2 * pos + 1);
  		constructSegmentTree(input, segTree, mid + 1, high, 2 * pos + 2);
  		
- 		segTree[pos] = Math.min(segTree[2*pos + 1], segTree[2*pos + 2]);
+ 		segTree[pos] = Math.min(segTree[2*pos + 1], segTree[2 * pos + 2]);
 	}
 	
 	public static void updateSegmentTree(int index, int value, int segTree[], int low, int high, int pos) {
